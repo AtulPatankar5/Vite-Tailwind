@@ -11,7 +11,7 @@ function App() {
       <Image src="../src/assets/ICICI-Bank.png" alt="logo" />
       
       {/* Main content area */}
-      <div className="flex-grow flex justify-center items-center">
+      <div className="flex-grow flex justify-center items-center bg-blue-300">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />
