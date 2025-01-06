@@ -8,10 +8,10 @@ import Image from './Components/Image';
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-cover m-0">
-      <Image src="../src/assets/ICICI-Bank.png" alt="logo"/>
+      <Image src="../src/assets/ICICI-Bank.png" alt="logo" />
       
       {/* Main content area */}
-      <div className="flex-grow flex justify-center items-center">
+      <div className="flex-grow flex justify-center items-center bg-blue-300">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />

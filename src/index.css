@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: white;
+        --color-text: black;
+        --color-text-base-secondary: orange;
+        --padding-y: 2px
+    }
+}
+
+.footer {
+    --color-primary: linear-gradient(to right, #FF7E5F, #feb47b);
+    --color-text: white;
+    --padding-y: 2px;
+
+}
