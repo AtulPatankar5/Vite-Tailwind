@@ -1,20 +1,24 @@
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Login from './Components/Login';
-import Register from './Components/Register';
+import Login from './Pages/login';
+import { Dashboard } from './Pages/dashboard';
+// import Register from './Components/Register';
 import Footer from './Components/Footer';
 import Image from './Components/Image';
+import logo from './assets/ICICI-Bank.png';
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col bg-cover m-0">
-      <Image src="../src/assets/ICICI-Bank.png" alt="logo" />
-      
+      {/* Header */}
+      <Image src={logo} alt="logo" />
+
       {/* Main content area */}
       <div className="flex-grow flex justify-center items-center bg-blue-300">
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
+          <Route path='/' element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/Register" element={<Register />} /> */}
         </Routes>
       </div>
 
