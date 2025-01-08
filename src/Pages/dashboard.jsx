@@ -2,15 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-// Helper function to fetch user from localStorage as a fallback
-function getUser() {
-    let user = localStorage.getItem('user');
-    return user ? JSON.parse(user) : null;
-}
 
 export const Dashboard = () => {
     // Use Redux to fetch the username, fallback to localStorage if Redux state is empty
-    const { username } = useSelector((state) => state.user) || getUser();
+    const { username } = useSelector((state) => state.user.user);
+    console.log("username =>", username)
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
