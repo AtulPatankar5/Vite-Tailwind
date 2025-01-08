@@ -23,17 +23,24 @@ export const Dashboard = () => {
     }
 
     return (
-        <>
-            {user ? (
-                <>
-                    <h4>Hello, {user}</h4>
-                    <button onClick={handleLogout}>Logout</button>
-                </>
+        <div>
+            <div >
 
-            ) : (
-                <Link to="/login">Login</Link>
-            )}
+                <h1>Dashboard</h1>
+            </div>
+            <div>
 
-        </>
+                {user ? (
+                    <>
+                        <h4>Hello, {user}</h4>
+                        <button onClick={handleLogout}>Logout</button>
+                    </>
+
+                ) : (
+                    <Link to="/">Login</Link>
+                )}
+            </div>
+
+        </div>
     )
 }

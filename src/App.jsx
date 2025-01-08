@@ -14,10 +14,10 @@ function App() {
       <Image src={logo} alt="logo" />
 
       {/* Main content area */}
-      <div className="flex-grow flex justify-center items-center bg-blue-300">
+      <div className="flex-grow flex justify-center items-center">
         <Routes>
-          <Route path='/' element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path="/" element={<Login />} />
           {/* <Route path="/Register" element={<Register />} /> */}
         </Routes>
       </div>
