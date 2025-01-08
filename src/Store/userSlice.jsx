@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import hostName from commonconstants;
 
-import { loginUser } from "../services/commonConstants";
+import { loginUser, logoutUser } from "../services/commonConstants";
 
 const userSlice = createSlice({
-    name: 'user',
+    name: 'data',
     initialState: {
         loading: false,
         user: '',
@@ -33,6 +32,19 @@ const userSlice = createSlice({
                 }
 
             })
+            // Handle logout actions
+            .addCase(logoutUser.fulfilled, (state) => {
+                state.loading = false;
+                state.user = '';
+                state.error = null;
+            })
+            .addCase(logoutUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(logoutUser.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || 'Logout failed';
+            });
     }
 })
 

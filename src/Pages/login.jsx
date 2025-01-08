@@ -12,7 +12,7 @@ export const Login = () => {
 
 
     //redux state
-    const { loading, error } = useSelector((state) => state.user)
+    const { loading, error } = useSelector((state) => state.data)
 
 
     const dispatch = useDispatch();
