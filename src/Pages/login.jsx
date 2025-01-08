@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../Store/userSlice';
+import { loginUser } from '../services/commonConstants';
 
 export const Login = () => {
 
@@ -25,7 +25,7 @@ export const Login = () => {
             if (result.payload) {
                 setUsername('');
                 setPassword('');
-                navigate('/');
+                navigate('/dashboard');
             }
         })
     }

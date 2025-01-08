@@ -16,7 +16,7 @@ function App() {
       {/* Main content area */}
       <div className="flex-grow flex justify-center items-center bg-blue-300">
         <Routes>
-          <Route path='/' element={<Dashboard />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="/Register" element={<Register />} /> */}
         </Routes>
