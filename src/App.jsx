@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col bg-cover m-0">
       {/* Header */}
-      <Image src={logo} alt="logo" />
+      {/* <Image src={logo} alt="logo" /> */}
 
       {/* Main content area */}
       <div className="flex-grow flex justify-center items-center">
