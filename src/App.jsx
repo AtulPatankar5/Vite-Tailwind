@@ -17,7 +17,7 @@ function App() {
       <div className="flex-grow flex justify-center items-center bg-blue-300">
         <Routes>
           <Route path='/dashboard' element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           {/* <Route path="/Register" element={<Register />} /> */}
         </Routes>
       </div>
