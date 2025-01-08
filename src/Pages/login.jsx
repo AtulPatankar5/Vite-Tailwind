@@ -26,7 +26,7 @@ export const Login = () => {
             if (result.payload) {
                 setUsername('');
                 setPassword('');
-                navigate('/');
+                navigate('/dashboard');
             }
         })
     }
