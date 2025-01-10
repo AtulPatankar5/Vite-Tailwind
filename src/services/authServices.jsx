@@ -16,7 +16,7 @@ export const loginUser = createAsyncThunk(
             }
         };
         try {
-            const request = await axios.post(`https://iam-fips-enabled-projects.apps.tj87n1bc.centralindia.aroapp.io/pi-control-adapter/v4/users/authenticate`, body, requestOptions)
+            const request = await axios.post(`http://127.0.0.1:9443/pi-control-adapter/v4/users/authenticate`, body, requestOptions)
             const response = await request.data;
             localStorage.setItem('user', JSON.stringify(response));
             console.log("Request of Login API==>", request)
