@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logoutUser } from '../services/commonConstants';
+import { logoutUser } from '../services/authServices';
 import { clearHistory } from '../Store/navigationSlice';
 
 export const Dashboard = () => {

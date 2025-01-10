@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-import { loginUser, logoutUser } from "../services/commonConstants";
+import { loginUser, logoutUser } from "../services/authServices";
 
 const userSlice = createSlice({
     name: 'data',
