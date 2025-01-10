@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../services/authServices';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { showNotification } from '../Store/notificationSlice';
 
 export const Login = () => {
 
@@ -32,13 +32,13 @@ export const Login = () => {
                 if (result.payload) {
                     // Check the API response for success
                     if (result.payload.status === 'SUCCESS') {
-                        toast.success('Login successful!');
+                        dispatch(showNotification({ type: "success", message: "Login successful!" }));
                         setUsername('');
                         setPassword('');
                         navigate('/dashboard');
                     } else {
                         // Handle the failure case (invalid credentials, etc.)
-                        toast.error(result.payload.response.data.developerMessage || 'Login failed!');
+                        dispatch(showNotification({ type: "error", message: result.payload.response.data.developerMessage }));
                     }
                 }
             })

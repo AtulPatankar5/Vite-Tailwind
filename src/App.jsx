@@ -10,7 +10,8 @@ import Footer from './Components/Footer';
 // import Image from './Components/Image';
 // import logo from './assets/ICICI-Bank.png';
 import { navigateTo } from './Store/navigationSlice';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
+import NotificationListener from './Components/toastNotification';
 
 
 const NavigationListener = () => {
@@ -33,7 +34,7 @@ function App() {
       {/* Main content area */}
       <div className="flex-grow flex justify-center items-center">
         <NavigationListener />
-        <ToastContainer />
+        <NotificationListener />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />} />
