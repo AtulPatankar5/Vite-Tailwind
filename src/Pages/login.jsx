@@ -1,8 +1,9 @@
-/* eslint-disable no-unused-vars */
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../services/commonConstants';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 export const Login = () => {
 
@@ -19,17 +20,36 @@ export const Login = () => {
     const navigate = useNavigate();
     const handleLoginEvent = (e) => {
         e.preventDefault();
-        let userCredentials = {
-            username, password
-        }
-        dispatch(loginUser(userCredentials)).then((result) => {
-            if (result.payload) {
-                setUsername('');
-                setPassword('');
-                navigate('/dashboard');
-            }
-        })
-    }
+        const userCredentials = {
+            username,
+            password,
+        };
+
+        dispatch(loginUser(userCredentials))
+            .then((result) => {
+                console.log("Result of API call:", result);
+
+                if (result.payload) {
+                    // Check the API response for success
+                    if (result.payload.status === 'SUCCESS') {
+                        toast.success('Login successful!');
+                        setUsername('');
+                        setPassword('');
+                        navigate('/dashboard');
+                    } else {
+                        // Handle the failure case (invalid credentials, etc.)
+                        toast.error(result.payload.response.data.developerMessage || 'Login failed!');
+                    }
+                }
+            })
+            .catch(() => {
+                // Handle network errors or unexpected API failures
+                console.log("Login API error response:", error);
+                const errorMessage = error.response?.data?.message || error.message || 'Login failed due to a network error!';
+                toast.error(errorMessage);
+            });
+    };
+
 
     return (
         <div className="flex justify-center items-center bg-cover ">

@@ -1,9 +1,8 @@
-// Dashboard.jsx
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '../services/commonConstants';
-import { clearHistory } from '../store/navigationSlice';
+import { clearHistory } from '../Store/navigationSlice';
 
 export const Dashboard = () => {
     const { username, token } = useSelector((state) => state.data.user);
@@ -40,9 +39,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
             ) : (
-                <Link to="/" className="text-blue-600 hover:text-blue-800 font-medium underline">
-                    Login
-                </Link>
+                null
             )}
         </div>
     );

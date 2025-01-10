@@ -1,4 +1,3 @@
-// NavigationHistoryPage.jsx
 import { useSelector } from 'react-redux';
 
 

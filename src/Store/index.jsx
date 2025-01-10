@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import navigationReducer from "d:/VITE and Tailwind/Vite-Tailwind/src/store/navigationSlice.jsx"
+import navigationReducer from './navigationSlice'
 import userReducer from './userSlice'
 
-const store = configureStore({
+const Store = configureStore({
     reducer: {
         data: userReducer,
         navigation: navigationReducer
     }
 })
 
-export default store;
+export default Store;
