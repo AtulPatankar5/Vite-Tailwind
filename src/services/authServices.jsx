@@ -13,6 +13,7 @@ export const loginUser = createAsyncThunk(
             headers: {
                 'Content-Type': 'application/json',
                 // 'Server-Id': '*'
+                createAsyncThunk
             }
         };
         try {
@@ -28,7 +29,7 @@ export const loginUser = createAsyncThunk(
     }
 );
 
-export const logoutUser = createAsyncThunk(
+export const logoutUser = (
     'data/logoutUser',
     async ({ username, token }) => {
         const loginConst = 'D98A47936BBD8135'

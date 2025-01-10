@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '../services/authServices';
 import { clearHistory } from '../Store/navigationSlice';
+import { showNotification } from '../Store/notificationSlice';
 
 export const Dashboard = () => {
     const { username, token } = useSelector((state) => state.data.user);
@@ -12,6 +13,7 @@ export const Dashboard = () => {
     const handleLogoutEvent = () => {
         dispatch(logoutUser({ username, token })).then((result) => {
             if (result.payload.status === "SUCCESS") {
+                dispatch(showNotification({ type: "info", message: "User Logged Out" }))
                 navigate('/');
             }
         });
