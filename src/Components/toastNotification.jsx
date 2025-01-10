@@ -31,10 +31,10 @@ const NotificationListener = () => {
     }, [type, message, dispatch]);
 
     return <ToastContainer
-        autoClose={1000}
+        autoClose={1500}
         hideProgressBar
         theme="colored"
-    // transition={Slide}
+        transition={Slide}
     />;
 };
 
