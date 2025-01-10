@@ -32,7 +32,7 @@ function App() {
       {/* <Image src={logo} alt="logo" /> */}
 
       {/* Main content area */}
-      <div className="flex-grow flex justify-center items-center">
+      {/* <div className="flex-grow flex justify-center items-center"> */}
         <NavigationListener />
         <NotificationListener />
         <Routes>
@@ -41,10 +41,10 @@ function App() {
           <Route path="/navigation-history" element={<NavigationHistoryPage />} />
           {/* <Route path="/Register" element={<Register />} /> */}
         </Routes>
-      </div>
+      {/* </div> */}
 
       {/* Footer at the bottom */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

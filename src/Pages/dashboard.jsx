@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { logoutUser } from '../services/authServices';
-import { clearHistory } from '../Store/navigationSlice';
+import { useNavigate } from "react-router-dom";
+import Footer from "../Components/Footer";
+import { logoutUser } from "../services/authServices";
+import { clearHistory } from "../Store/navigationSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Dashboard = () => {
     const { username, token } = useSelector((state) => state.data.user);
@@ -19,28 +19,36 @@ export const Dashboard = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600">
-            {username ? (
-                <div className="text-center bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
-                    <h4 className="text-3xl font-semibold text-gray-800 mb-4">Hello, {username}</h4>
-                    <div className="space-y-4">
-                        <button
-                            className="w-full px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 transition duration-300"
-                            onClick={handleLogoutEvent}
-                        >
-                            Logout
-                        </button>
-                        <Link
-                            to="/navigation-history"
-                            className="block w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300"
-                        >
-                            View Navigation History
-                        </Link>
-                    </div>
+        <>
+            <div className="flex flex-col min-h-screen">
+                {/* Dashboard block at the top */}
+                <div className="relative flex flex-col items-center justify-start bg-gradient-to-b border-b-2 border-orange-500 shadow-glow-bottom">
+                    {username && (
+                        <>
+                            {/* Centered username at the top */}
+                            <h4 className="text-3xl font-semibold text-gray-800 mt-4 mb-4">Dashboard</h4>
+
+                            {/* Logout button positioned at the top-right corner */}
+                            <button
+                                className="absolute top-4 right-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 transition duration-300"
+                                onClick={handleLogoutEvent}
+                            >
+                                Logout
+                            </button>
+                        </>
+                    )}
                 </div>
-            ) : (
-                null
-            )}
-        </div>
+
+                {/* Centered Welcome message */}
+                {username && (
+                    <div className="flex-grow flex items-center justify-center text-center mb-8">
+                        <h4 className="text-3xl font-semibold text-gray-800">Welcome, {username}</h4>
+                    </div>
+                )}
+
+                {/* Footer positioned at the bottom */}
+                <Footer />
+            </div>
+        </>
     );
 };
