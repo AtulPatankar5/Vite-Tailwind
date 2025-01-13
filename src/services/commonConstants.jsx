@@ -1,5 +1,3 @@
-import { Route, Redirect } from "react-router-dom";
-import createBrowserHistory from './createHistory';
 import axios from 'axios';
 // import AuthService from './authService';
 
@@ -17,7 +15,8 @@ if (baseUrl.includes('localhost')) {
 HostURL = baseUrl + appPath;
 
 
-const remoteServerForLocal = "https://iam-fips-enabled-projects.apps.tj87n1bc.centralindia.aroapp.io";
+// const remoteServerForLocal = "https://iam-fips-enabled-projects.apps.tj87n1bc.centralindia.aroapp.io";
+const remoteServerForLocal = "http://127.0.0.1:9443";
 
 export const commonPost = (postPara, data) => {
     let auth = sessionStorage.getItem('Authorization');

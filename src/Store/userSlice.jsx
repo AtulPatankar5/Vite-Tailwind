@@ -25,11 +25,10 @@ const userSlice = createSlice({
                 state.user = null;
                 console.log(action.error.message);
                 if (action.error.message === "Network Error") {
-                    state.error = 'Cannot connect to the server'
+                    state.error = 'Cannot connect to the server';
                 } else {
                     state.error = action.error.message;
                 }
-
             })
             // Handle logout actions
             .addCase(logoutUser.fulfilled, (state) => {
@@ -45,6 +44,6 @@ const userSlice = createSlice({
                 state.error = action.error.message || 'Logout failed';
             });
     }
-})
+});
 
 export default userSlice.reducer;

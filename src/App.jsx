@@ -6,7 +6,7 @@ import Login from './Pages/login';
 import { Dashboard } from './Pages/dashboard';
 import NavigationHistoryPage from './Pages/navigationHistory';
 // import Register from './Components/Register';
-import Footer from './Components/Footer';
+// import Footer from './Components/Footer';
 // import Image from './Components/Image';
 // import logo from './assets/ICICI-Bank.png';
 import { navigateTo } from './Store/navigationSlice';
