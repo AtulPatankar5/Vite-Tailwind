@@ -13,7 +13,6 @@ import { navigateTo } from './Store/navigationSlice';
 // import { ToastContainer } from 'react-toastify';
 import NotificationListener from './Components/toastNotification';
 
-
 const NavigationListener = () => {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -33,14 +32,14 @@ function App() {
 
       {/* Main content area */}
       {/* <div className="flex-grow flex justify-center items-center"> */}
-        <NavigationListener />
-        <NotificationListener />
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path="/navigation-history" element={<NavigationHistoryPage />} />
-          {/* <Route path="/Register" element={<Register />} /> */}
-        </Routes>
+      <NavigationListener />
+      <NotificationListener />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path="/navigation-history" element={<NavigationHistoryPage />} />
+        {/* <Route path="/Register" element={<Register />} /> */}
+      </Routes>
       {/* </div> */}
 
       {/* Footer at the bottom */}
