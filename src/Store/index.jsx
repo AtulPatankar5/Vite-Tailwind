@@ -5,7 +5,7 @@ import notificationReducer from './notificationSlice'
 import { persistReducer } from 'redux-persist';
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from 'redux-persist/lib/storage';
-
+import { persistStore } from 'redux-persist'
 
 const persistConfig = {
     key: "root",
@@ -23,12 +23,14 @@ const persistedReducers = persistReducer(persistConfig, reducers);
 
 const Store = configureStore({
     reducer: persistedReducers,
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            serializableCheck: {
-                ignoredActions: ['persist/PERSIST'], // Ignore redux-persist actions
-            },
-        }),
+    // middleware: (getDefaultMiddleware) =>
+    //     getDefaultMiddleware({
+    //         serializableCheck: {
+    //             ignoredActions: ['persist/PERSIST'], // Ignore redux-persist actions
+    //         },
+    //     }),
 })
 
-export default Store;
+let persistor = persistStore(Store)
+
+export { Store, persistor };
