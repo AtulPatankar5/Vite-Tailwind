@@ -1,18 +1,21 @@
 import { useSelector } from "react-redux";
 import Header from "../Components/Header";
 import Sidebar from "../Components/Sidebar";
+import { useState } from "react";
 
 const NavigationHistoryPage = () => {
     const navigationHistory = useSelector((state) => state.navigation?.navigationHistory || []);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isPinned, setIsPinned] = useState(false);
 
     return (
         <div className="flex min-h-screen">
             {/* Sidebar */}
-            <Sidebar />
+            <Sidebar isOpen={isOpen} isPinned={isPinned} setIsOpen={setIsOpen} setIsPinned={setIsPinned} />
 
             {/* Main Content */}
             <div className="flex-grow flex flex-col">
-                <Header />
+                <Header isOpen={isOpen} isPinned={isPinned} />
                 <div className="flex justify-center items-center bg-cover">
                     <div className="border h-auto md:h-96 rounded-3xl p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl">
                         <h4 className="text-3xl font-semibold text-gray-800 mb-6">Navigation History</h4>

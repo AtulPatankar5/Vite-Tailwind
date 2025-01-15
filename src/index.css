@@ -3,17 +3,72 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --color-primary: white;
-        --color-text: black;
-        --color-text-base-secondary: orange;
-        --padding-y: 2px
-    }
+  /* Orange Theme */
+  .theme-orange {
+    --tw-color-primary: theme("colors.orange.primary");
+    --tw-color-secondary: theme("colors.orange.secondary");
+    --tw-color-accent: theme("colors.orange.accent");
+    --tw-color-text: theme("colors.orange.text");
+    --tw-color-background: theme("colors.orange.background");
+  }
+
+  /* Blue Theme */
+  .theme-blue {
+    --tw-color-primary: theme("colors.blue.primary");
+    --tw-color-secondary: theme("colors.blue.secondary");
+    --tw-color-accent: theme("colors.blue.accent");
+    --tw-color-text: theme("colors.blue.text");
+    --tw-color-background: theme("colors.blue.background");
+  }
+
+  /* Dark Theme */
+  .theme-dark {
+    --tw-color-primary: theme("colors.dark.primary");
+    --tw-color-secondary: theme("colors.dark.secondary");
+    --tw-color-accent: theme("colors.dark.accent");
+    --tw-color-text: theme("colors.dark.text");
+    --tw-color-background: theme("colors.dark.background");
+  }
 }
 
-.footer {
-    --color-primary: linear-gradient(to right, #FF7E5F, #feb47b);
-    --color-text: white;
-    --padding-y: 2px;
+@layer components {
+  .themed-header {
+    @apply bg-gradient-to-b;
+    background-image: linear-gradient(
+      to bottom,
+      var(--tw-color-primary),
+      var(--tw-color-secondary)
+    );
+  }
 
+  .themed-footer {
+    @apply bg-gradient-to-r;
+    background-image: linear-gradient(
+      to right,
+      var(--tw-color-primary),
+      var(--tw-color-secondary),
+      var(--tw-color-accent)
+    );
+  }
+
+  .themed-sidebar {
+    background-color: var(--tw-color-background);
+    border-right-color: var(--tw-color-accent);
+    border-right-width: 1px;
+    border-opacity: 0.2;
+  }
+
+  .themed-text {
+    color: var(--tw-color-text);
+  }
+
+  .themed-button {
+    background-color: var(--tw-color-primary);
+    color: white;
+    @apply hover:opacity-90 transition-opacity duration-300;
+  }
+
+  .themed-background {
+    background-color: var(--tw-color-background);
+  }
 }
