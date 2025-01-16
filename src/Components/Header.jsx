@@ -69,22 +69,23 @@ const Header = ({ isOpen, isPinned }) => {
                     </div>
                 </>
             ) : (
-                <div className="flex items-center space-x-4">
-                    {/* Guest User Icon */}
-                    <div className="p-2 rounded-full bg-gray-100 text-gray-500">
-                        <FaUserCircle className="text-3xl" />
-                    </div>
-                    <div>
-                        <span className="text-gray-800 text-lg font-semibold block">Guest</span>
-                        <span className="text-gray-500 text-sm block">
-                            Please log in to access the dashboard
-                        </span>
-                    </div>
-                    {/* Theme Toggle for guest users */}
-                    <div className="ml-auto">
-                        <ThemeToggle />
-                    </div>
-                </div>
+                navigate('/')
+                // <div className="flex items-center space-x-4">
+                //     {/* Guest User Icon */}
+                //     <div className="p-2 rounded-full bg-gray-100 text-gray-500">
+                //         <FaUserCircle className="text-3xl" />
+                //     </div>
+                //     <div>
+                //         <span className="text-gray-800 text-lg font-semibold block">Guest</span>
+                //         <span className="text-gray-500 text-sm block">
+                //             Please log in to access the dashboard
+                //         </span>
+                //     </div>
+                //     {/* Theme Toggle for guest users */}
+                //     <div className="ml-auto">
+                //         <ThemeToggle />
+                //     </div>
+                // </div>
             )}
         </div>
     );

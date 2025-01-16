@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { FaArrowLeft, FaArrowRight, FaThumbtack, FaHome, FaChartBar } from 'react-icons/fa';
@@ -42,7 +42,7 @@ const Sidebar = ({ isOpen, setIsOpen, isPinned, setIsPinned }) => {
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [isPinned]);
+    }, [isOpen, setIsOpen, isPinned, setIsPinned]);
 
     // const toggleSidebar = () => {
     //     if (isPinned) {
@@ -57,11 +57,11 @@ const Sidebar = ({ isOpen, setIsOpen, isPinned, setIsPinned }) => {
         accent: currentTheme === 'orange' ? 'bg-orange-500' : currentTheme === 'blue' ? 'bg-blue-500' : 'bg-gray-500',
         text: currentTheme === 'orange' ? 'text-gray-800' : currentTheme === 'blue' ? 'text-gray-900' : 'text-white',
     };
-
+    // ${isPinned || isOpen ? 'w-72' : 'w-20'}
     return (
         <div
             className={`fixed left-0 top-0 h-screen z-50 transition-all duration-300 ease-in-out 
-            ${isPinned || isOpen ? 'w-72' : 'w-20'} themed-sidebar`}
+             themed-sidebar`}
             onMouseEnter={() => !isPinned && setIsOpen(true)}
             onMouseLeave={() => !isPinned && setIsOpen(false)}
         >
